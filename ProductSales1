@@ -1,0 +1,44 @@
+public class ProductSales1 implements ProductSalesInterface { //Implements ProductSalesInterface
+    private int[] sales; //Array that stores product sales
+    private int salesLimit = 500; //Limit of the sales
+
+    public ProductSales(int[] sales) { //Constructor
+        this.sales = sales;
+    }
+
+    @Override
+    public int[] GetProductSales() {
+        return sales;//Returns sales array
+    }
+
+    @Override
+    public int GetTotalSales() {
+        int total = 0;
+        for (int s : sales) total += s;
+        return total; //Total of the sales
+    }
+
+    @Override
+    public double GetAverageSales() {
+        return Math.round((double)GetTotalSales() / sales.length); //Returns the average of sales
+    }
+
+    @Override
+    public int GetSalesOverLimit() {
+        int count = 0;
+        for (int s : sales) if (s > salesLimit) count++; //counts sales above the limit
+        return count;
+    }
+
+    @Override
+    public int GetSalesUnderLimit() {
+        int count = 0;
+        for (int s : sales) if (s < salesLimit) count++; //Conuts sales below the limit
+        return count;
+    }
+
+    @Override
+    public int GetProductsProcessed() {
+        return sales.length / 3; //3 products a year
+    }
+}
