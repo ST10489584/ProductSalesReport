@@ -20,7 +20,7 @@ public class ProductSales1 implements ProductSalesInterface { //Implements Produ
 
     @Override
     public double GetAverageSales() {
-        return Math.round((double)GetTotalSales() / sales.length); //Returns the average of sales
+        return (int)((double)GetTotalSales() / sales.length); //Returns the average of sales
     }
 
     @Override
